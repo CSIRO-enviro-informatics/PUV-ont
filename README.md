@@ -1,7 +1,7 @@
 # P01-ont
 Ontology for defining parameters (observable-properties) corresponding to the NVS P01 vocabulary
 
-The model for P01 parameter-use items is described in the [P01 issue tracker]](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized: 
+The model for P01 parameter-use items is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized: 
 
 Link type | Properties | Statistical terms | Chemical entities | Biological entities | Physical entities | Measurement-matrix relationships | Matrices | Sample preparation methods | Analytical methods | Data processing methods |
 -------|-------|-------|-------|-------|-------|-------|------|-------|-------|-------|
