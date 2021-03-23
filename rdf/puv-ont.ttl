@@ -29,39 +29,112 @@
   owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports <http://www.w3.org/ns/ssn/ext> ;
 .
+puv:AnalyticalMethod
+  a owl:Class ;
+  rdfs:label "Analytical method" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S04/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:BiologicalEntity
+  a owl:Class ;
+  rdfs:label "Biological entity" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S25/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:ChemicalEntity
+  a owl:Class ;
+  rdfs:label "Chemical entity" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S27/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:DataProcessingMethod
+  a owl:Class ;
+  rdfs:label "Data processing method" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S05/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:MMRel
+  a owl:Class ;
+  rdfs:label "Measurement-matrix relationship" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S02/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:MaterialEntity
+  a owl:Class ;
+  rdfs:label "Material entity" ;
+  rdfs:seeAlso <https://github.com/nvs-vocabs/P01> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:Matrix
+  a owl:Class ;
+  rdfs:label "Matrix" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S26/> ;
+  rdfs:subClassOf skos:Concept ;
+.
 puv:Parameter
   a owl:Class ;
   rdfs:comment "Scientific variable in databases and data files" ;
   rdfs:label "Parameter" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P01/> ;
   rdfs:subClassOf sosa:ObservableProperty ;
   skos:scopeNote """Remember that a P01 label is always constructed from the following association of concepts:
 
 The property or attribute	'of'	an object of interest	in relation to	an environmental matrix	'by'	a method (optional)
 All fields apart from 'of' and 'by' are populated from NVS controlled vocabularies (see this diagram for simple visualisation or download it to use as a tool for quick access to the semantic components of a P01 concept).""" ;
 .
+puv:PhysicalEntity
+  a owl:Class ;
+  rdfs:label "Physical entity" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S29/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:PrepMethod
+  a owl:Class ;
+  rdfs:label "Sample preparation method" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S03/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:Property
+  a owl:Class ;
+  rdfs:label "Property" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S06/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf sosa:ObservableProperty ;
+.
+puv:StatisticalTerm
+  a owl:Class ;
+  rdfs:label "Statistical term" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S07/> ;
+  rdfs:subClassOf skos:Concept ;
+.
 puv:analyticalMethod
   a owl:ObjectProperty ;
   rdfs:label "analytical method" ;
+  rdfs:range puv:AnalyticalMethod ;
   rdfs:subPropertyOf puv:matrixRelationship ;
 .
 puv:biologicalObject
   a owl:ObjectProperty ;
   rdfs:label "biological object of interest" ;
+  rdfs:range puv:BiologicalEntity ;
   rdfs:subPropertyOf puv:objectOfInterest ;
 .
 puv:chemicalObject
   a owl:ObjectProperty ;
   rdfs:label "chemical object of interest" ;
+  rdfs:range puv:ChemicalEntity ;
   rdfs:subPropertyOf puv:objectOfInterest ;
 .
 puv:dataProcessing
   a owl:ObjectProperty ;
   rdfs:label "data processing method" ;
+  rdfs:range puv:DataProcessingMethod ;
   rdfs:subPropertyOf puv:method ;
 .
 puv:materialObject
   a owl:ObjectProperty ;
   rdfs:label "material object of interest" ;
+  rdfs:range puv:MaterialEntity ;
   rdfs:subPropertyOf puv:objectOfInterest ;
 .
 puv:matrix
@@ -69,6 +142,7 @@ puv:matrix
   rdfs:comment "environmental matrix that the measurement is in relation to " ;
   rdfs:domain puv:Parameter ;
   rdfs:label "matrix " ;
+  rdfs:range puv:Matrix ;
   skos:scopeNote """What is the environmental matrix?
 
 - Do I need one? You will for most environmental measurements.
@@ -85,13 +159,16 @@ For example, when a dissolved quantity is measured in a water body, we apply the
 .
 puv:matrixRelationship
   a owl:ObjectProperty ;
+  rdfs:domain puv:Parameter ;
   rdfs:label "measurement-matrix relationship" ;
+  rdfs:range puv:MMRel ;
 .
 puv:method
   a owl:ObjectProperty ;
   rdfs:comment "method used to measure the value" ;
   rdfs:domain puv:Parameter ;
   rdfs:label "method" ;
+  rdfs:range puv:AnalyticalMethod ;
   skos:scopeNote """Do I need to specify the method?
 
 - This can be important for some measurements or if one wants to distinguish between quantities measured using different methods
@@ -112,6 +189,7 @@ Note that if the property is the property of the environment under study (e.g. \
 puv:physicalObject
   a owl:ObjectProperty ;
   rdfs:label "physical object of interest" ;
+  rdfs:range puv:PhysicalEntity ;
   rdfs:subPropertyOf puv:objectOfInterest ;
 .
 puv:property
@@ -119,11 +197,13 @@ puv:property
   rdfs:comment "property or attribute that is being measured, which must be associated with either an object of interest or a matrix or both" ;
   rdfs:domain puv:Parameter ;
   rdfs:label "property" ;
+  rdfs:range puv:Property ;
   skos:scopeNote "What are the properties measured or observed? What kind of properties are they? Concentrations? Abundances? Temperature? Uptake rates? pH?" ;
 .
 puv:samplePreparation
   a owl:ObjectProperty ;
   rdfs:label "sample-preparation method" ;
+  rdfs:range puv:PrepMethod ;
   rdfs:subPropertyOf puv:method ;
 .
 puv:statistic
@@ -131,4 +211,5 @@ puv:statistic
   rdfs:comment "statistical treatment" ;
   rdfs:domain puv:Parameter ;
   rdfs:label "statistic " ;
+  rdfs:range puv:StatisticalTerm ;
 .

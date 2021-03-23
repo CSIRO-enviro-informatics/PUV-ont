@@ -1,0 +1,71 @@
+# baseURI: https://example.org/puv-test
+# imports: https://w3id.org/env/puv-ont
+# prefix: puv-test
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix puv: <https://w3id.org/env/puv-ont#> .
+@prefix puv-test: <https://example.org/puv-test#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/puv-test>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/env/puv-ont> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+puv-test:UGMS
+  a puv:Parameter ;
+  dcterms:source "https://doi.org/10.5194/gmd-13-4503-2020 Supplement Table 7 https://gmd.copernicus.org/articles/13/4503/2020/gmd-13-4503-2020-supplement.zip" ;
+  rdfs:label "Biomass as nitrogen of Macroalgae per unit area of the sea surface" ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P02/current/PU02/> ;
+  skos:definition "Concentration of nitrogen biomass per m2 of macrolagae. Macroalgae (or seaweed) grows above all other benthic plants (corals, seagrasses, benthic microalgae). It is parameterised as a non-calcifying leafy algae, with a C:N:P ratio of 550:30:1, and a formulation for calculating the percentage of the bottom covered as 1-exp(-ΩMA MA). In the model, in the absence of both calcifying macroalgae (particularly Halimeda) and unicellular epiphytes, macroalgae represents the biomass of all seaweeds and epiphytes." ;
+  skos:notation "MA" ;
+  skos:prefLabel "Biomass as nitrogen of Macroalgae per unit area of the sea surface" ;
+  puv:biologicalObject [
+      a puv:BiologicalEntity ;
+      skos:prefLabel "macroalgae (S25)" ;
+    ] ;
+  puv:matrix [
+      a puv:Matrix ;
+      skos:prefLabel "water body" ;
+    ] ;
+  puv:matrixRelationship [
+      a puv:MMRel ;
+      skos:prefLabel "per unit area of the" ;
+    ] ;
+  puv:property [
+      a puv:Property ;
+      skos:prefLabel "Biomass as nitrogen" ;
+    ] ;
+.
+puv-test:UGSS
+  a puv:Parameter ;
+  dcterms:source "https://doi.org/10.5194/gmd-13-4503-2020 Supplement Table 7 https://gmd.copernicus.org/articles/13/4503/2020/gmd-13-4503-2020-supplement.zip" ;
+  rdfs:label "Biomass as nitrogen of Deep Seagrass per unit area of the sea surface" ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P02/current/PU02/> ;
+  skos:definition "Concentration of nitrogen biomass per m2 of a seagrass form parameterised to be similar to Halophila deciphens. This form captures light after it has passed through the Zostera and Halophila ovalis seagrass form." ;
+  skos:notation "SGD" ;
+  skos:prefLabel "Biomass as nitrogen of Deep Seagrass per unit area of the sea surface" ;
+  puv:biologicalObject [
+      a puv:BiologicalEntity ;
+      skos:prefLabel "Halophila deciphens (S25)" ;
+    ] ;
+  puv:matrix [
+      a puv:Matrix ;
+      skos:prefLabel "water body" ;
+    ] ;
+  puv:matrixRelationship [
+      a puv:MMRel ;
+      skos:prefLabel "per unit area of the" ;
+    ] ;
+  puv:property [
+      a puv:Property ;
+      skos:prefLabel "Biomass as nitrogen" ;
+    ] ;
+.
+puv:matrixRelationship
+  rdfs:domain puv:Parameter ;
+.
