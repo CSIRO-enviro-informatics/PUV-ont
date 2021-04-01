@@ -1,0 +1,31 @@
+# baseURI: https://example.org/puv-ereefs-test
+# imports: http://qudt.org/2.1/vocab/unit
+# imports: http://qudt.org/schema/qudt
+# imports: https://w3id.org/env/puv-ont
+
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix puv:     <https://w3id.org/env/puv-ont#> .
+@prefix puv-ereefs-test:  <https://example.org/puv-ereefs-test#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/puv-ereefs-test>
+      rdf:type owl:Ontology ;
+      rdfs:comment "This example is motivated by data published as netCDF. see http://dapds00.nci.org.au/thredds/dodsC/fx3/gbr1_2.0/gbr1_simple_2021-02-10.nc.html"^^xsd:string ;
+      rdfs:seeAlso <http://dapds00.nci.org.au/thredds/dodsC/fx3/gbr1_2.0/gbr1_simple_2021-02-10.nc.html> ;
+      owl:imports <http://qudt.org/2.1/vocab/unit> , <http://qudt.org/schema/qudt> , <https://w3id.org/env/puv-ont> ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+puv-ereefs-test:salt
+      rdf:type puv:Parameter ;
+      rdfs:label "Practical salinity of ocean measured in Practical Salinity Unit"^^xsd:string ;
+      qudt:unit unit:PSU ;
+      skos:prefLabel "Salinity"^^xsd:string ;
+      puv:matrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT00640> ;
+      puv:objectOfInterest
+              <http://sweetontology.net/matrWater/SaltWater> ;
+      puv:property <http://vocab.nerc.ac.uk/collection/S06/current/S0600083/> .
