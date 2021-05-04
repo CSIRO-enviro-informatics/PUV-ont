@@ -23,6 +23,7 @@
   dcterms:created "2021-03-17"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dcterms:modified "2021-05-03"^^xsd:date ;
   dcterms:source <https://github.com/nvs-vocabs/P01> ;
   rdfs:comment "A simple ontology which implements the Parameter Usage Vocabulary semantic model, as described at https://github.com/nvs-vocabs/P01" ;
   rdfs:label "Parameter Usage Vocabulary ontology" ;
@@ -43,6 +44,66 @@ puv:BiologicalEntity
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S25/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:Entity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom puv:BiologicalEntityComponent ;
+      owl:onProperty puv:isComposedOf ;
+    ] ;
+.
+puv:BiologicalEntityColour
+  a owl:Class ;
+  rdfs:label "Biological entity colour (S15)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S15/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntityComponent
+  a owl:Class ;
+  rdfs:comment "Also see S09 (size), S10 (gender), S11 (stage), S12 (sub-component), S13 (sub-group), S14 (shape), S15 (colour)" ;
+  rdfs:label "Biological entity components (superclass)" ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:BiologicalEntityGender
+  a owl:Class ;
+  rdfs:label "Biological entity gender (S10)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S10/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntityShape
+  a owl:Class ;
+  rdfs:label "Biological entity shape (S14)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S14/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntitySize
+  a owl:Class ;
+  rdfs:label "Biological entity size (S09)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S09/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntityStage
+  a owl:Class ;
+  rdfs:label "Biological entity stage (S11)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S11/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntitySubComponent
+  a owl:Class ;
+  rdfs:label "Biological entity sub-component (S12)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S12/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
+.
+puv:BiologicalEntitySubGroup
+  a owl:Class ;
+  rdfs:label "Biological entity sub-group (S13)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S13/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:BiologicalEntityComponent ;
 .
 puv:ChemicalEntity
   a owl:Class ;
@@ -74,6 +135,45 @@ puv:Matrix
   rdfs:label "Matrix (S26)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S26/> ;
   rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom puv:MatrixComponent ;
+      owl:onProperty puv:isComposedOf ;
+    ] ;
+.
+puv:MatrixComponent
+  a owl:Class ;
+  rdfs:comment "Also see S21 (sphere), S22 (sphere sub-group), S23 (phase), S24 (phase sub-group)" ;
+  rdfs:label "Matrix component" ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:MatrixPhase
+  a owl:Class ;
+  rdfs:label "Matrix phase (S23)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S23/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:MatrixComponent ;
+.
+puv:MatrixPhaseSubGroup
+  a owl:Class ;
+  rdfs:label "Matrix phase sub-group (S24)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S24/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:MatrixComponent ;
+.
+puv:MatrixSphere
+  a owl:Class ;
+  rdfs:label "Matrix sphere (S21)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S21/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:MatrixComponent ;
+.
+puv:MatrixSphereSubGroup
+  a owl:Class ;
+  rdfs:label "Matrix sphere sub-group (S22)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S22/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:MatrixComponent ;
 .
 puv:Method
   a owl:Class ;
@@ -97,6 +197,38 @@ puv:PhysicalEntity
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S29/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:Entity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom puv:PhysicalEntityComponent ;
+      owl:onProperty puv:isComposedOf ;
+    ] ;
+.
+puv:PhysicalEntityComponent
+  a owl:Class ;
+  rdfs:comment "Also see S18 (name), S19 (sub-group), S20 (datum)" ;
+  rdfs:label "Physical entity component" ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:PhysicalEntityDatum
+  a owl:Class ;
+  rdfs:label "Physical entity datum (S20)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S20/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:PhysicalEntityComponent ;
+.
+puv:PhysicalEntityName
+  a owl:Class ;
+  rdfs:label "Physical entity name (S18)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S18/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:PhysicalEntityComponent ;
+.
+puv:PhysicalEntitySubGroup
+  a owl:Class ;
+  rdfs:label "Physical entity sub-group (S19)" ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S19/> ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:subClassOf puv:PhysicalEntityComponent ;
 .
 puv:PrepMethod
   a owl:Class ;
@@ -123,6 +255,7 @@ puv:analyticalMethod
   rdfs:domain puv:Parameter ;
   rdfs:label "analytical method" ;
   rdfs:range puv:AnalyticalMethod ;
+  rdfs:subPropertyOf puv:method ;
 .
 puv:biologicalObject
   a owl:ObjectProperty ;
@@ -144,6 +277,11 @@ puv:dataProcessing
   rdfs:label "data processing method" ;
   rdfs:range puv:DataProcessingMethod ;
   rdfs:subPropertyOf puv:method ;
+.
+puv:isComposedOf
+  a owl:ObjectProperty ;
+  rdfs:comment "link to component concepts" ;
+  rdfs:label "is composed of" ;
 .
 puv:matrix
   a owl:ObjectProperty ;
