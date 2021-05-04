@@ -11,7 +11,7 @@ Advanced search UI | [S06](https://www.bodc.ac.uk/resources/vocabularies/vocabul
 
 ![P01_wheel](image/P01_wheel.png)
 
-The OWL implementation in PUV-ont is summarized
+The [OWL implementation in PUV-ont](rdf/puv-ont.ttl) is summarized
 
 ![PUV-ont](image/puv-Parameter.png)
 
