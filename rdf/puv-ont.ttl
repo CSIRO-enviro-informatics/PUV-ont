@@ -60,7 +60,7 @@ puv:BiologicalEntityColour
 puv:BiologicalEntityComponent
   a owl:Class ;
   rdfs:comment "Also see S09 (size), S10 (gender), S11 (stage), S12 (sub-component), S13 (sub-group), S14 (shape), S15 (colour)" ;
-  rdfs:label "Biological entity components (superclass)" ;
+  rdfs:label "Biological entity component" ;
   rdfs:subClassOf skos:Concept ;
 .
 puv:BiologicalEntityGender
@@ -182,7 +182,7 @@ puv:Method
 puv:Parameter
   a owl:Class ;
   rdfs:comment "Scientific variable in databases and data files" ;
-  rdfs:label "Parameter" ;
+  rdfs:label "Parameter (P01)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P01/> ;
   rdfs:subClassOf sosa:ObservableProperty ;
   skos:scopeNote """Remember that a P01 label is always constructed from the following association of concepts:

@@ -11,5 +11,9 @@ Advanced search UI | [S06](https://www.bodc.ac.uk/resources/vocabularies/vocabul
 
 ![P01_wheel](image/P01_wheel.png)
 
+The OWL implementation in PUV-ont is summarized
+
+![PUV-ont](image/puv-Parameter.png)
+
 The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) has also addressed this issue. 
 See our [comparison of PUV-ont with CPM ontology](puv-vs-cpm.md)
