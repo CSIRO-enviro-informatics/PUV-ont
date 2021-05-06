@@ -1,5 +1,5 @@
 # Parameter Usage Vocabulary Ontology
-An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](vocab.nerc.ac.uk/collection/P01/current/). 
+An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](https://vocab.nerc.ac.uk/collection/P01/current/). 
 
 The 'semantic model' for parameters is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized: 
 
