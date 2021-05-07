@@ -1,19 +1,47 @@
 # Parameter Usage Vocabulary Ontology
 An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](https://vocab.nerc.ac.uk/collection/P01/current/). 
 
-The 'semantic model' for parameters is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized: 
-
-Link type | Properties | Statistical terms | Chemical entities | Biological entities | Physical entities | Measurement-matrix relationships | Matrices | Sample preparation methods | Analytical methods | Data processing methods |
--------|-------|-------|-------|-------|-------|-------|------|-------|-------|-------|
-GitHub repo | [S06](https://github.com/nvs-vocabs/S06/) | [S07](https://github.com/nvs-vocabs/S07/) | [S27](https://github.com/nvs-vocabs/S27/) | [S25](https://github.com/nvs-vocabs/S25/) |[S29](https://github.com/nvs-vocabs/S29/)|[S02](https://github.com/nvs-vocabs/S02/) | [S26](https://github.com/nvs-vocabs/S26/) | [S03](https://github.com/nvs-vocabs/S23/)| [S04](https://github.com/nvs-vocabs/S04/)|[S05](https://github.com/nvs-vocabs/S05/)
-NVS UI | [S06](https://vocab.nerc.ac.uk/collection/S06/) | [S07](https://vocab.nerc.ac.uk/collection/S07/) | [S27](https://vocab.nerc.ac.uk/collection/S27/) | [S25](https://vocab.nerc.ac.uk/collection/S25/) |[S29](https://vocab.nerc.ac.uk/collection/S29/)|[S02](https://vocab.nerc.ac.uk/collection/S02/) | [S26](https://vocab.nerc.ac.uk/collection/S26/) | [S03](https://vocab.nerc.ac.uk/collection/S23/)| [S04](https://vocab.nerc.ac.uk/collection/S04/)|[S05](https://vocab.nerc.ac.uk/collection/S05/)
-Advanced search UI | [S06](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S06/) | [S07](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S07/) | [S27](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S27/) | [S25](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S25/) |[S29](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S29/)|[S02](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S02/) | [S26](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S26/) | [S03](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S23/)| [S04](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S04/)|[S05](https://www.bodc.ac.uk/resources/vocabularies/vocabulary_search/S05/)
+The 'semantic model' for parameters is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized in the following figure: 
 
 ![P01_wheel](image/P01_wheel.png)
 
-The [OWL implementation in PUV-ont](rdf/puv-ont.ttl) is summarized
+The P01 'Semantic Model' defines the structure of a Parameter Name (seen as its `skos:prefLabel`), the RDF representation only shows generalized SKOS relationships to the component terms: 
+
+For example, the parameter [`R0186569`](http://vocab.nerc.ac.uk/collection/P01/current/R0186569/) is currently described using the basic SKOS relations as follows:
+```Turtle
+<http://vocab.nerc.ac.uk/collection/P01/current/R0186569/> a skos:Concept ;
+    skos:altLabel "DryWt_CAS57117-41-6_BE006569" ;
+    skos:broader <http://vocab.nerc.ac.uk/collection/P02/current/BCOC/>,
+        <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/>,
+        <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/>,
+        <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/>,
+        <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
+    skos:definition "The amount (mass or number of moles) of the specified analyte per unit weight of the specified organism or part thereof after water has been removed."@en ;
+    skos:prefLabel "Concentration of 1,2,3,7,8-pentachlorodibenzofuran {1,2,3,7,8-pentaCDF CAS 57117-41-6} per unit dry weight of biota {Mytilus galloprovincialis (ITIS: 79456: WoRMS 140481) [Subcomponent: flesh]}"@en ;
+    skos:related <http://vocab.nerc.ac.uk/collection/P06/current/UUKG/>,
+        <http://vocab.nerc.ac.uk/collection/S02/current/S041/> .
+```
+
+This [OWL implementation](rdf/puv-ont.ttl) implements explicit links to the dependency terms from the other vocabularies.  
 
 ![PUV-ont](image/puv-Parameter.png)
+
+Using PUV-ont the relationships in the example above are explicit:
+
+```turtle
+<http://vocab.nerc.ac.uk/collection/P01/current/R0186569/> a skos:Concept , puv:Parameter ;
+  skos:altLabel "DryWt_CAS57117-41-6_BE006569" ;
+  skos:broader <http://vocab.nerc.ac.uk/collection/P02/current/BCOC/> ;
+  skos:definition "The amount (mass or number of moles) of the specified analyte per unit weight of the specified organism or part thereof after water has been removed."@en ;
+  skos:prefLabel "Concentration of 1,2,3,7,8-pentachlorodibenzofuran {1,2,3,7,8-pentaCDF CAS 57117-41-6} per unit dry weight of biota {Mytilus galloprovincialis (ITIS: 79456: WoRMS 140481) [Subcomponent: flesh]}"@en ;
+  puv:biologicalObject <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/> ;
+  puv:chemicalObject <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
+  puv:matrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/> ;
+  puv:matrixRelationship <http://vocab.nerc.ac.uk/collection/S02/current/S041/> ;
+  puv:property <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/> ;
+  puv:uom <http://vocab.nerc.ac.uk/collection/P06/current/UUKG/> ;
+.
+```
 
 The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) has also addressed this issue. 
 See our [comparison of PUV-ont with CPM ontology](puv-vs-cpm.md)
