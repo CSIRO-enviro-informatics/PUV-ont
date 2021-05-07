@@ -184,6 +184,7 @@ puv:Parameter
   rdfs:comment "Scientific variable in databases and data files" ;
   rdfs:label "Parameter (P01)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P01/> ;
+  rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf sosa:ObservableProperty ;
   skos:scopeNote """Remember that a P01 label is always constructed from the following association of concepts:
 
@@ -250,6 +251,12 @@ puv:StatisticalTerm
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S07/> ;
   rdfs:subClassOf skos:Concept ;
 .
+puv:UnitOfMeasurement
+  a owl:Class ;
+  rdfs:label "Unit of Measurement (P06)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P06/> ;
+  rdfs:subClassOf skos:Concept ;
+.
 puv:analyticalMethod
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
@@ -312,7 +319,6 @@ puv:matrixRelationship
 puv:method
   a owl:ObjectProperty ;
   rdfs:comment "method used to measure the value" ;
-  rdfs:domain puv:Parameter ;
   rdfs:label "method" ;
   rdfs:range puv:Method ;
   skos:scopeNote """Do I need to specify the method?
@@ -326,7 +332,6 @@ Take for example, chlorophyll-a. The output from an in situ fluorometer is often
 puv:objectOfInterest
   a owl:ObjectProperty ;
   rdfs:comment "object of interest can be a chemical object, a biological object, a physical phenomenon, or a material object" ;
-  rdfs:domain puv:Parameter ;
   rdfs:label "object of interest " ;
   rdfs:range puv:Entity ;
   skos:scopeNote """What are the objects of interest? Are they chemical substances? biological organisms? material objects? physical phenomena? none of these?
@@ -361,4 +366,10 @@ puv:statistic
   rdfs:domain puv:Parameter ;
   rdfs:label "statistic " ;
   rdfs:range puv:StatisticalTerm ;
+.
+puv:uom
+  a owl:ObjectProperty ;
+  rdfs:comment "scale or unit of measurement" ;
+  rdfs:label "unit-of-measurement " ;
+  rdfs:range puv:UnitOfMeasurement ;
 .
