@@ -44,5 +44,5 @@ Using PUV-ont the relationships in the same example are encoded as follows:
 .
 ```
 
-The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) has also addressed this issue. 
+The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) developed by [Adam Leadbetter](https://github.com/adamml) also addressed this issue. 
 See our [comparison of PUV-ont with CPM ontology](puv-vs-cpm.md)
