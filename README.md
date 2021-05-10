@@ -5,9 +5,10 @@ The 'semantic model' for parameters is described in the [P01 issue tracker](http
 
 ![P01_wheel](image/P01_wheel.png)
 
-The P01 'Semantic Model' defines the structure of a Parameter Name (seen as its `skos:prefLabel`), the RDF representation only shows generalized SKOS relationships to the component terms: 
+The P01 'Semantic Model' defines a rule to build a Parameter Name (seen as its `skos:prefLabel`). 
+However, the current RDF representation from NVS only shows generalized SKOS relationships to the component terms (`skos:broader` and `skos:related`). 
+For example, the description of parameter [`R0186569`](http://vocab.nerc.ac.uk/collection/P01/current/R0186569/) is as follows:
 
-For example, the parameter [`R0186569`](http://vocab.nerc.ac.uk/collection/P01/current/R0186569/) is currently described using the basic SKOS relations as follows:
 ```Turtle
 <http://vocab.nerc.ac.uk/collection/P01/current/R0186569/> a skos:Concept ;
     skos:altLabel "DryWt_CAS57117-41-6_BE006569" ;
@@ -22,11 +23,11 @@ For example, the parameter [`R0186569`](http://vocab.nerc.ac.uk/collection/P01/c
         <http://vocab.nerc.ac.uk/collection/S02/current/S041/> .
 ```
 
-This [OWL implementation](rdf/puv-ont.ttl) implements explicit links to the dependency terms from the other vocabularies.  
+The OWL implementation defined in [PUV-ont](rdf/puv-ont.ttl) has explicit links to the dependency terms from different vocabularies.  
 
 ![PUV-ont](image/puv-Parameter.png)
 
-Using PUV-ont the relationships in the example above are explicit:
+Using PUV-ont the relationships in the same example are encoded as follows:
 
 ```turtle
 <http://vocab.nerc.ac.uk/collection/P01/current/R0186569/> a skos:Concept , puv:Parameter ;
