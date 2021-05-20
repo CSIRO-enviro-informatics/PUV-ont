@@ -1,11 +1,11 @@
-# baseURI: https://w3id.org/env/puv-ont
+# baseURI: https://w3id.org/env/puv
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://www.w3.org/ns/ssn/ext
 # prefix: puv
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix puv: <https://w3id.org/env/puv-ont#> .
+@prefix puv: <https://w3id.org/env/puv#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sdo: <http://schema.org/> .
@@ -14,7 +14,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/env/puv-ont>
+<https://w3id.org/env/puv>
   a owl:Ontology ;
   dcterms:contributor <https://orcid.org/0000-0001-6559-4178> ;
   dcterms:contributor <https://orcid.org/0000-0001-8042-6391> ;
@@ -22,6 +22,7 @@
   dcterms:contributor <mailto:rkl@bodc.ac.uk> ;
   dcterms:created "2021-03-17"^^xsd:date ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+  dcterms:identifier "https://w3id.org/env/puv"^^xsd:anyURI ;
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcterms:modified "2021-05-03"^^xsd:date ;
   dcterms:source <https://github.com/nvs-vocabs/P01> ;

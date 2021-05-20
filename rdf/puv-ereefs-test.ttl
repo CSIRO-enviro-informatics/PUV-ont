@@ -1,10 +1,10 @@
 # baseURI: https://example.org/puv-ereefs-test
 # imports: http://qudt.org/2.1/vocab/unit
 # imports: http://qudt.org/schema/qudt
-# imports: https://w3id.org/env/puv-ont
+# imports: https://w3id.org/env/puv-
 
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix puv:     <https://w3id.org/env/puv-ont#> .
+@prefix puv:     <https://w3id.org/env/puv#> .
 @prefix puv-ereefs-test:  <https://example.org/puv-ereefs-test#> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -18,7 +18,6 @@
       rdfs:comment "This example is motivated by data published as netCDF. see http://dapds00.nci.org.au/thredds/dodsC/fx3/gbr1_2.0/gbr1_simple_2021-02-10.nc.html"^^xsd:string ;
       rdfs:seeAlso <http://dapds00.nci.org.au/thredds/dodsC/fx3/gbr1_2.0/gbr1_simple_2021-02-10.nc.html> ;
       owl:imports <http://qudt.org/2.1/vocab/unit> , <http://qudt.org/schema/qudt> , <https://w3id.org/env/puv-ont> ;
-      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
 
 puv-ereefs-test:salt
       rdf:type puv:Parameter ;
