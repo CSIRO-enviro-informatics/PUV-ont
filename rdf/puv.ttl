@@ -82,6 +82,7 @@
   rdfs:label "Parameter Usage Vocabulary ontology" ;
   owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports sosa: ;
+  schema:codeRepository <https://github.com/CSIRO-enviro-informatics/PUV-ont> ;
 .
 puv:AnalyticalMethod
   a owl:Class ;
