@@ -1,6 +1,6 @@
 # baseURI: https://w3id.org/env/puv
 # imports: http://purl.org/dc/elements/1.1/
-# imports: http://www.w3.org/ns/ssn/ext
+# imports: http://www.w3.org/ns/sosa/
 # prefix: puv
 
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -8,12 +8,64 @@
 @prefix puv: <https://w3id.org/env/puv#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
 @prefix sdo: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://orcid.org/0000-0001-6559-4178>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:name "BODC" ;
+    ] ;
+  schema:email <mailto:gmon@bodc.ac.uk> ;
+  schema:identifier "https://orcid.org/0000-0001-6559-4178"^^xsd:anyURI ;
+  schema:name "Gwenaëlle Moncoiffé"@en ;
+.
+<https://orcid.org/0000-0001-8042-6391>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:name "BODC" ;
+    ] ;
+  schema:email <mailto:alexk@bodc.ac.uk> ;
+  schema:identifier "https://orcid.org/0000-0001-8042-6391"^^xsd:anyURI ;
+  schema:name "Alexandra Kokkinaki"@en ;
+.
+<mailto:rkl@bodc.ac.uk>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:name "BODC" ;
+    ] ;
+  schema:email <mailto:rkl@bodc.ac.uk> ;
+  schema:name "Roy Lowry"@en ;
+.
+<https://orcid.org/0000-0002-2237-0091>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
+      schema:name "CSIRO" ;
+    ] ;
+  schema:email <mailto:Jonathan.Yu@csiro.au> ;
+  schema:identifier "https://orcid.org/0000-0002-2237-0091"^^xsd:anyURI ;
+  schema:name "Jonathan Yu"@en ;
+.
+<https://orcid.org/0000-0002-3884-3420>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:identifier "http://catalogue.linked.data.gov.au/org/csiro"^^xsd:anyURI ;
+      schema:name "CSIRO" ;
+    ] ;
+  schema:email <mailto:simon.cox@csiro.au> ;
+  schema:identifier "https://orcid.org/0000-0002-3884-3420"^^xsd:anyURI ;
+  schema:name "Simon J D Cox"@en ;
+.
 <https://w3id.org/env/puv>
   a owl:Ontology ;
   dcterms:contributor <https://orcid.org/0000-0001-6559-4178> ;
@@ -24,15 +76,16 @@
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
   dcterms:identifier "https://w3id.org/env/puv"^^xsd:anyURI ;
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:modified "2021-05-03"^^xsd:date ;
+  dcterms:modified "2021-05-21"^^xsd:date ;
   dcterms:source <https://github.com/nvs-vocabs/P01> ;
   rdfs:comment "A simple ontology which implements the Parameter Usage Vocabulary semantic model, as described at https://github.com/nvs-vocabs/P01" ;
   rdfs:label "Parameter Usage Vocabulary ontology" ;
   owl:imports <http://purl.org/dc/elements/1.1/> ;
-  owl:imports <http://www.w3.org/ns/ssn/ext> ;
+  owl:imports sosa: ;
 .
 puv:AnalyticalMethod
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for an analytical method entity (part of the how theme) in the BODC parameter semantic model" ;
   rdfs:label "Analytical method (S04)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S04/> ;
   rdfs:subClassOf skos:Concept ;
@@ -40,6 +93,7 @@ puv:AnalyticalMethod
 .
 puv:BiologicalEntity
   a owl:Class ;
+  dcterms:description "Terms used to describe biological entities (organisms or parts thereof) in the BODC Parameter Usage Vocabulary" ;
   rdfs:comment "Also see S09 (size), S10 (gender), S11 (stage), S12 (sub-component), S13 (sub-group), S14 (shape), S15 (colour)" ;
   rdfs:label "Biological entity (S25)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S25/> ;
@@ -53,6 +107,7 @@ puv:BiologicalEntity
 .
 puv:BiologicalEntityColour
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for colour or optical appearance of a biological entity (component of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity colour (S15)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S15/> ;
   rdfs:subClassOf skos:Concept ;
@@ -66,6 +121,7 @@ puv:BiologicalEntityComponent
 .
 puv:BiologicalEntityGender
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining terms used to refer to a biological entity sex category (part of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity gender (S10)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S10/> ;
   rdfs:subClassOf skos:Concept ;
@@ -73,6 +129,7 @@ puv:BiologicalEntityGender
 .
 puv:BiologicalEntityShape
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for morphology of a biological entity (component of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity shape (S14)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S14/> ;
   rdfs:subClassOf skos:Concept ;
@@ -80,6 +137,7 @@ puv:BiologicalEntityShape
 .
 puv:BiologicalEntitySize
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for biological entity size (part of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity size (S09)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S09/> ;
   rdfs:subClassOf skos:Concept ;
@@ -87,6 +145,7 @@ puv:BiologicalEntitySize
 .
 puv:BiologicalEntityStage
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to specify the development or life cycle stage of a biological entity (part of the 'what' theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity stage (S11)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S11/> ;
   rdfs:subClassOf skos:Concept ;
@@ -94,6 +153,7 @@ puv:BiologicalEntityStage
 .
 puv:BiologicalEntitySubComponent
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for biological entity (component of the what theme) plant or animal parts in the BODC parameter semantic model" ;
   rdfs:label "Biological entity sub-component (S12)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S12/> ;
   rdfs:subClassOf skos:Concept ;
@@ -101,6 +161,7 @@ puv:BiologicalEntitySubComponent
 .
 puv:BiologicalEntitySubGroup
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for ad-hoc qualification of a biological entity (component of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Biological entity sub-group (S13)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S13/> ;
   rdfs:subClassOf skos:Concept ;
@@ -108,13 +169,15 @@ puv:BiologicalEntitySubGroup
 .
 puv:ChemicalEntity
   a owl:Class ;
-  rdfs:label "Chemical entity (S27)" ;
+  dcterms:description "Terms for chemicals whose quantity in a matrix is determined to generate measurements in the BODC parameter usage vocabulary semantic model. Includes elements, compounds, isotopes and mixtures" ;
+  rdfs:label "Chemical substance (S27)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S27/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:Entity ;
 .
 puv:DataProcessingMethod
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for data processing description (part of the how theme) in the BODC parameter semantic model" ;
   rdfs:label "Data processing method (S05)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S05/> ;
   rdfs:subClassOf skos:Concept ;
@@ -126,12 +189,14 @@ puv:Entity
 .
 puv:MMRel
   a owl:Class ;
+  dcterms:description "Terms used to describe the relationship between the 'where theme' and the 'what theme' in the BODC semantic model for measured phenomena descriptions" ;
   rdfs:label "Measurement-matrix relationship (S02)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S02/> ;
   rdfs:subClassOf skos:Concept ;
 .
 puv:Matrix
   a owl:Class ;
+  dcterms:description "Terms used to describe the medium in which a measurement was made in the semantic model that underpins the BODC parameter discovery vocabulary" ;
   rdfs:comment "Also see S21 (sphere), S22 (sphere sub-group), S23 (phase), S24 (phase sub-group)" ;
   rdfs:label "Matrix (S26)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S26/> ;
@@ -150,20 +215,23 @@ puv:MatrixComponent
 .
 puv:MatrixPhase
   a owl:Class ;
-  rdfs:label "Matrix phase (S23)" ;
+  dcterms:description "Controlled vocabulary defining the terms for phase (dissolved, particulate etc.) within a sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme" ;
+  rdfs:label "Sphere phase (S23)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S23/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:MatrixComponent ;
 .
 puv:MatrixPhaseSubGroup
   a owl:Class ;
-  rdfs:label "Matrix phase sub-group (S24)" ;
+  dcterms:description "Concepts describing physical or logical (i.e. categories) subdivisions of a phase (i.e. subcomponent) of a sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme" ;
+  rdfs:label "Sphere phase sub-group (S24)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S24/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:MatrixComponent ;
 .
 puv:MatrixSphere
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to describe the sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme" ;
   rdfs:label "Matrix sphere (S21)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S21/> ;
   rdfs:subClassOf skos:Concept ;
@@ -171,6 +239,7 @@ puv:MatrixSphere
 .
 puv:MatrixSphereSubGroup
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to describe subgroupings of the sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme" ;
   rdfs:label "Matrix sphere sub-group (S22)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S22/> ;
   rdfs:subClassOf skos:Concept ;
@@ -182,6 +251,7 @@ puv:Method
 .
 puv:Parameter
   a owl:Class ;
+  dcterms:description "Terms built using the BODC parameter semantic model designed to describe individual measured phenomena. May be used to mark up sets of data such as a NetCDF array or spreadsheet column" ;
   rdfs:comment "Scientific variable in databases and data files" ;
   rdfs:label "Parameter (P01)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P01/> ;
@@ -200,12 +270,21 @@ All fields apart from 'of' and 'by' are populated from NVS controlled vocabulari
 .
 puv:ParameterDiscovery
   a owl:Class ;
-  rdfs:label "Parameter Discovery (P02)" ;
+  dcterms:description "Terms describing fine-grained related groups of measurement phenomena designed to be used in dataset discovery interfaces" ;
+  rdfs:label "SeaDataNet Parameter Discovery (P02)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P02/> ;
+  rdfs:subClassOf skos:Concept ;
+.
+puv:ParameterStatistic
+  a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for a parameter statistic (part of the what theme) in the BODC parameter semantic model" ;
+  rdfs:label "Parameter statistic (S07)" ;
+  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S07/> ;
   rdfs:subClassOf skos:Concept ;
 .
 puv:PhysicalEntity
   a owl:Class ;
+  dcterms:description "Terms used to describe physical entities in the BODC Parameter Usage Vocabulary" ;
   rdfs:comment "Also see S18 (name), S19 (sub-group), S20 (datum)" ;
   rdfs:label "Physical entity (S29)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S29/> ;
@@ -225,6 +304,7 @@ puv:PhysicalEntityComponent
 .
 puv:PhysicalEntityDatum
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to describe the reference with respect to which a physical entity (part of the what theme) in the BODC parameter. semantic model is specified" ;
   rdfs:label "Physical entity datum (S20)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S20/> ;
   rdfs:subClassOf skos:Concept ;
@@ -232,6 +312,7 @@ puv:PhysicalEntityDatum
 .
 puv:PhysicalEntityName
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for a physical entity (part of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Physical entity name (S18)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S18/> ;
   rdfs:subClassOf skos:Concept ;
@@ -239,6 +320,7 @@ puv:PhysicalEntityName
 .
 puv:PhysicalEntitySubGroup
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to qualify a generic physical entity (part of the what theme) in the BODC parameter semantic model" ;
   rdfs:label "Physical entity sub-group (S19)" ;
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S19/> ;
   rdfs:subClassOf skos:Concept ;
@@ -246,6 +328,7 @@ puv:PhysicalEntitySubGroup
 .
 puv:PrepMethod
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used for a sample preparation entity (part of the how theme) in the BODC parameter semantic model" ;
   rdfs:label "Sample preparation method (S03)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S03/> ;
   rdfs:subClassOf skos:Concept ;
@@ -253,19 +336,15 @@ puv:PrepMethod
 .
 puv:Property
   a owl:Class ;
+  dcterms:description "Controlled vocabulary defining the terms that may be used to specify the property element of a parameter (part of the 'what' theme) in the BODC parameter semantic model" ;
   rdfs:label "Property (S06) " ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S06/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf sosa:ObservableProperty ;
 .
-puv:StatisticalTerm
-  a owl:Class ;
-  rdfs:label "Statistical term (S07)" ;
-  rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/S07/> ;
-  rdfs:subClassOf skos:Concept ;
-.
 puv:UnitOfMeasurement
   a owl:Class ;
+  dcterms:description "Terms approved for use by BODC to describe the measurement units for data held in its repositories" ;
   rdfs:label "Unit of Measurement (P06)" ;
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P06/> ;
   rdfs:subClassOf skos:Concept ;
@@ -378,7 +457,7 @@ puv:statistic
   rdfs:comment "statistical treatment" ;
   rdfs:domain puv:Parameter ;
   rdfs:label "statistic " ;
-  rdfs:range puv:StatisticalTerm ;
+  rdfs:range puv:ParameterStatistic ;
 .
 puv:uom
   a owl:ObjectProperty ;

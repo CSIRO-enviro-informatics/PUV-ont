@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Parameter Usage Vocabulary ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+#pylode {
+    position: fixed;
+    top: 80px;
+    left: -60px;
+    font-size: small;
+    transform: rotate(-90deg);
+    color: grey;
+}
+#pylode a {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #005A9C;
+}
+#pylode a:hover {
+    color: #333;
+}
+
+.cardinality {
+    font-style: italic;
+    color: #aa00aa;
+}
+
+dt {
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+ul.hlist {
+    list-style-type: none;
+    border: 1px solid navy;
+    padding:5px;
+    background-color: #F4FFFF;
+}
+
+
+ul.hlist li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.entity {
+    border: 1px solid navy;
+    margin:5px 0 5px 0;
+    padding: 5px;
+}
+
+.entity th {
+    width: 150px;
+    vertical-align: top;
+}
+
+.entity th,
+.entity td {
+    padding-bottom: 20px;
+}
+
+.entity table th {
+    text-align: left;
+}
+
+section#overview img {
+    max-width: 1000px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left
+}
+h1, h2, h3 {
+    color: #005A9C; background: white
+}
+h1 {
+    font: 170% sans-serif;
+    line-height: 110%;
+}
+h2 {
+    font: 140% sans-serif;
+    margin-top:40px;
+}
+h3 {
+    font: 120% sans-serif;
+    margin-top: 3px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid navy;
+}
+h4 { font: bold 100% sans-serif }
+h5 { font: italic 100% sans-serif }
+h6 { font: small-caps 100% sans-serif }
+
+
+body {
+    padding: 2em 70px 2em 70px;
+    margin: 0;
+    font-family: sans-serif;
+    color: black;
+    background: white;
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: justify;
+}
+
+section {
+    max-width: 1500px;
+}
+
+.figure {
+    margin-bottom: 20px;
+}
+
+:link { color: #00C; background: transparent }
+:visited { color: #609; background: transparent }
+a:active { color: #C00; background: transparent }
+
+.sup-c,
+.sup-op,
+.sup-fp,
+.sup-dp,
+.sup-ap,
+.sup-p,
+.sup-ni {
+    cursor:help;
+    margin-left: 3px;
+}
+
+.sup-c {
+    color:orange;
+}
+
+.sup-op {
+    color:navy;
+}
+
+.sup-fp {
+    color:lightskyblue;
+}
+
+.sup-dp {
+    color:green;
+}
+
+.sup-ap {
+    color:darkred;
+}
+
+.sup-p {
+    color:black;
+}
+
+.sup-ni {
+    color:brown;
+}
+
+code {
+    font-size: large;
+    color: darkred;
+}
+
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://w3id.org/env/puv",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>A simple ontology which implements the Parameter Usage Vocabulary semantic model, as described at https://github.com/nvs-vocabs/P01</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "<a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">https://creativecommons.org/publicdomain/zero/1.0/</a>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Parameter Usage Vocabulary ontology"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+<div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">pyLODE</a></div>
+<h1>Parameter Usage Vocabulary ontology</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>IRI</dt>
+        <dd><code>https://w3id.org/env/puv</code></dd>
+        <dt>Creator(s)</dt>
+        <dd>
+            <a href="https://orcid.org/0000-0002-3884-3420">Simon J D Cox</a> (<a href="mailto:simon.cox@csiro.au">simon.cox@csiro.au</a>) of <a href="http://catalogue.linked.data.gov.au/org/csiro">CSIRO</a><br/>
+        </dd>
+        <dt>Contributors(s)</dt>
+        <dd>
+            <a href="https://orcid.org/0000-0002-2237-0091">Jonathan Yu</a> (<a href="mailto:Jonathan.Yu@csiro.au">Jonathan.Yu@csiro.au</a>) of <a href="http://catalogue.linked.data.gov.au/org/csiro">CSIRO</a><br/>
+            <a href="mailto:rkl@bodc.ac.uk">Roy Lowry</a> of BODC<br/>
+            <a href="https://orcid.org/0000-0001-8042-6391">Alexandra Kokkinaki</a> (<a href="mailto:alexk@bodc.ac.uk">alexk@bodc.ac.uk</a>) of BODC<br/>
+            <a href="https://orcid.org/0000-0001-6559-4178">Gwenaëlle Moncoiffé</a> (<a href="mailto:gmon@bodc.ac.uk">gmon@bodc.ac.uk</a>) of BODC<br/>
+        </dd>
+        <dt>Created</dt>
+        <dd>2021-03-17</dd>
+        <dt>Modified</dt>
+        <dd>2021-05-21</dd>
+        <dt>Imports</dt>
+        <dd>
+            <a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a><br/>
+            <a href="http://www.w3.org/ns/sosa/">sosa:</a><br/>
+        </dd>
+        <dt>License</dt>
+        <dd><a href="https://creativecommons.org/publicdomain/zero/1.0/">https://creativecommons.org/publicdomain/zero/1.0/</a></dd>
+        <dt>Ontology Source</dt>
+        <dd><a href="rdf/puv.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>A simple ontology which implements the Parameter Usage Vocabulary semantic model, as described at https://github.com/nvs-vocabs/P01</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <img src="image/puv-Parameter.png" />
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+<section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Analyticalmethod(S04)">Analytical method (S04)</a></li>
+        <li><a href="#Biologicalentity(S25)">Biological entity (S25)</a></li>
+        <li><a href="#Biologicalentitycolour(S15)">Biological entity colour (S15)</a></li>
+        <li><a href="#Biologicalentitycomponent">Biological entity component</a></li>
+        <li><a href="#Biologicalentitygender(S10)">Biological entity gender (S10)</a></li>
+        <li><a href="#Biologicalentityshape(S14)">Biological entity shape (S14)</a></li>
+        <li><a href="#Biologicalentitysize(S09)">Biological entity size (S09)</a></li>
+        <li><a href="#Biologicalentitystage(S11)">Biological entity stage (S11)</a></li>
+        <li><a href="#Biologicalentitysub-component(S12)">Biological entity sub-component (S12)</a></li>
+        <li><a href="#Biologicalentitysub-group(S13)">Biological entity sub-group (S13)</a></li>
+        <li><a href="#Chemicalsubstance(S27)">Chemical substance (S27)</a></li>
+        <li><a href="#Dataprocessingmethod(S05)">Data processing method (S05)</a></li>
+        <li><a href="#Entitythatbearstheparameter">Entity that bears the parameter</a></li>
+        <li><a href="#Matrix(S26)">Matrix (S26)</a></li>
+        <li><a href="#Matrixcomponent">Matrix component</a></li>
+        <li><a href="#Matrixsphere(S21)">Matrix sphere (S21)</a></li>
+        <li><a href="#Matrixspheresub-group(S22)">Matrix sphere sub-group (S22)</a></li>
+        <li><a href="#Measurement-matrixrelationship(S02)">Measurement-matrix relationship (S02)</a></li>
+        <li><a href="#Methodused">Method used</a></li>
+        <li><a href="#Parameter(P01)">Parameter (P01)</a></li>
+        <li><a href="#Parameterstatistic(S07)">Parameter statistic (S07)</a></li>
+        <li><a href="#Physicalentity(S29)">Physical entity (S29)</a></li>
+        <li><a href="#Physicalentitycomponent">Physical entity component</a></li>
+        <li><a href="#Physicalentitydatum(S20)">Physical entity datum (S20)</a></li>
+        <li><a href="#Physicalentityname(S18)">Physical entity name (S18)</a></li>
+        <li><a href="#Physicalentitysub-group(S19)">Physical entity sub-group (S19)</a></li>
+        <li><a href="#Property(S06)">Property (S06) </a></li>
+        <li><a href="#Samplepreparationmethod(S03)">Sample preparation method (S03)</a></li>
+        <li><a href="#SeaDataNetParameterDiscovery(P02)">SeaDataNet Parameter Discovery (P02)</a></li>
+        <li><a href="#Spherephase(S23)">Sphere phase (S23)</a></li>
+        <li><a href="#Spherephasesub-group(S24)">Sphere phase sub-group (S24)</a></li>
+        <li><a href="#UnitofMeasurement(P06)">Unit of Measurement (P06)</a></li>
+    </ul>
+    <div class="entity class" id="Analyticalmethod(S04)">
+        <h3>Analytical method (S04)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#AnalyticalMethod</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for an analytical method entity (part of the how theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Methodused">puv:Method</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#analyticalmethod">puv:analyticalMethod</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentity(S25)">
+        <h3>Biological entity (S25)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Also see S09 (size), S10 (gender), S11 (stage), S12 (sub-component), S13 (sub-group), S14 (shape), S15 (colour)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Entitythatbearstheparameter">puv:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#iscomposedof">puv:isComposedOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#biologicalobjectofinterest">puv:biologicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitycolour(S15)">
+        <h3>Biological entity colour (S15)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntityColour</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for colour or optical appearance of a biological entity (component of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitycomponent">
+        <h3>Biological entity component<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntityComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Also see S09 (size), S10 (gender), S11 (stage), S12 (sub-component), S13 (sub-group), S14 (shape), S15 (colour)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Biologicalentitysub-group(S13)">puv:BiologicalEntitySubGroup</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitysize(S09)">puv:BiologicalEntitySize</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitystage(S11)">puv:BiologicalEntityStage</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentityshape(S14)">puv:BiologicalEntityShape</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitygender(S10)">puv:BiologicalEntityGender</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycolour(S15)">puv:BiologicalEntityColour</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitysub-component(S12)">puv:BiologicalEntitySubComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitygender(S10)">
+        <h3>Biological entity gender (S10)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntityGender</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining terms used to refer to a biological entity sex category (part of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentityshape(S14)">
+        <h3>Biological entity shape (S14)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntityShape</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for morphology of a biological entity (component of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitysize(S09)">
+        <h3>Biological entity size (S09)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntitySize</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for biological entity size (part of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitystage(S11)">
+        <h3>Biological entity stage (S11)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntityStage</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to specify the development or life cycle stage of a biological entity (part of the 'what' theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitysub-component(S12)">
+        <h3>Biological entity sub-component (S12)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntitySubComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for biological entity (component of the what theme) plant or animal parts in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Biologicalentitysub-group(S13)">
+        <h3>Biological entity sub-group (S13)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#BiologicalEntitySubGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for ad-hoc qualification of a biological entity (component of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Biologicalentitycomponent">puv:BiologicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Chemicalsubstance(S27)">
+        <h3>Chemical substance (S27)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#ChemicalEntity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms for chemicals whose quantity in a matrix is determined to generate measurements in the BODC parameter usage vocabulary semantic model. Includes elements, compounds, isotopes and mixtures
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Entitythatbearstheparameter">puv:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#chemicalobjectofinterest">puv:chemicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Dataprocessingmethod(S05)">
+        <h3>Data processing method (S05)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#DataProcessingMethod</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for data processing description (part of the how theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Methodused">puv:Method</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#dataprocessingmethod">puv:dataProcessing</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entitythatbearstheparameter">
+        <h3>Entity that bears the parameter<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Biologicalentity(S25)">puv:BiologicalEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Physicalentity(S29)">puv:PhysicalEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Chemicalsubstance(S27)">puv:ChemicalEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#objectofinterest">puv:objectOfInterest</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Measurement-matrixrelationship(S02)">
+        <h3>Measurement-matrix relationship (S02)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MMRel</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms used to describe the relationship between the 'where theme' and the 'what theme' in the BODC semantic model for measured phenomena descriptions
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#measurement-matrixrelationship">puv:matrixRelationship</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Matrix(S26)">
+        <h3>Matrix (S26)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#Matrix</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms used to describe the medium in which a measurement was made in the semantic model that underpins the BODC parameter discovery vocabulary
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#iscomposedof">puv:isComposedOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="#Matrixcomponent">puv:MatrixComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#matrix">puv:matrix</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Matrixcomponent">
+        <h3>Matrix component<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MatrixComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Also see S21 (sphere), S22 (sphere sub-group), S23 (phase), S24 (phase sub-group)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Spherephase(S23)">puv:MatrixPhase</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Matrixspheresub-group(S22)">puv:MatrixSphereSubGroup</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Spherephasesub-group(S24)">puv:MatrixPhaseSubGroup</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Matrixsphere(S21)">puv:MatrixSphere</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Spherephase(S23)">
+        <h3>Sphere phase (S23)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MatrixPhase</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms for phase (dissolved, particulate etc.) within a sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Matrixcomponent">puv:MatrixComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Spherephasesub-group(S24)">
+        <h3>Sphere phase sub-group (S24)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MatrixPhaseSubGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Concepts describing physical or logical (i.e. categories) subdivisions of a phase (i.e. subcomponent) of a sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Matrixcomponent">puv:MatrixComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Matrixsphere(S21)">
+        <h3>Matrix sphere (S21)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MatrixSphere</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to describe the sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Matrixcomponent">puv:MatrixComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Matrixspheresub-group(S22)">
+        <h3>Matrix sphere sub-group (S22)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#MatrixSphereSubGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to describe subgroupings of the sphere (SWEET EarthRealm) in the BODC parameter semantic model. Part of the where theme
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Matrixcomponent">puv:MatrixComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Methodused">
+        <h3>Method used<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#Method</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Samplepreparationmethod(S03)">puv:PrepMethod</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Analyticalmethod(S04)">puv:AnalyticalMethod</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Dataprocessingmethod(S05)">puv:DataProcessingMethod</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#method">puv:method</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Parameter(P01)">
+        <h3>Parameter (P01)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#Parameter</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Scientific variable in databases and data files
+                </td>
+            </tr>
+            <tr>
+                <th>Usage Note</th>
+                <td>
+                    Remember that a P01 label is always constructed from the following association of concepts:
+
+The property or attribute	'of'	an object of interest	in relation to	an environmental matrix	'by'	a method (optional)
+All fields apart from 'of' and 'by' are populated from NVS controlled vocabularies (see this diagram for simple visualisation or download it to use as a tool for quick access to the semantic components of a P01 concept).
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/sosa/ObservableProperty">sosa:ObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a> <span class="cardinality">min</span> 1 <a href="#SeaDataNetParameterDiscovery(P02)">puv:ParameterDiscovery</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#sample-preparationmethod">puv:samplePreparation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#dataprocessingmethod">puv:dataProcessing</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#property">puv:property</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#matrix">puv:matrix</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#analyticalmethod">puv:analyticalMethod</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#chemicalobjectofinterest">puv:chemicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#statistic">puv:statistic</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#biologicalobjectofinterest">puv:biologicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#measurement-matrixrelationship">puv:matrixRelationship</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#physicalobjectofinterest">puv:physicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SeaDataNetParameterDiscovery(P02)">
+        <h3>SeaDataNet Parameter Discovery (P02)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#ParameterDiscovery</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms describing fine-grained related groups of measurement phenomena designed to be used in dataset discovery interfaces
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Parameterstatistic(S07)">
+        <h3>Parameter statistic (S07)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#ParameterStatistic</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for a parameter statistic (part of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#statistic">puv:statistic</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Physicalentity(S29)">
+        <h3>Physical entity (S29)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PhysicalEntity</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms used to describe physical entities in the BODC Parameter Usage Vocabulary
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Entitythatbearstheparameter">puv:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#iscomposedof">puv:isComposedOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">only</span> <a href="#Physicalentitycomponent">puv:PhysicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#physicalobjectofinterest">puv:physicalObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Physicalentitycomponent">
+        <h3>Physical entity component<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PhysicalEntityComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Also see S18 (name), S19 (sub-group), S20 (datum)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Physicalentityname(S18)">puv:PhysicalEntityName</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Physicalentitydatum(S20)">puv:PhysicalEntityDatum</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Physicalentitysub-group(S19)">puv:PhysicalEntitySubGroup</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Physicalentitydatum(S20)">
+        <h3>Physical entity datum (S20)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PhysicalEntityDatum</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to describe the reference with respect to which a physical entity (part of the what theme) in the BODC parameter. semantic model is specified
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Physicalentitycomponent">puv:PhysicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Physicalentityname(S18)">
+        <h3>Physical entity name (S18)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PhysicalEntityName</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for a physical entity (part of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Physicalentitycomponent">puv:PhysicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Physicalentitysub-group(S19)">
+        <h3>Physical entity sub-group (S19)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PhysicalEntitySubGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to qualify a generic physical entity (part of the what theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Physicalentitycomponent">puv:PhysicalEntityComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Samplepreparationmethod(S03)">
+        <h3>Sample preparation method (S03)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#PrepMethod</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used for a sample preparation entity (part of the how theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Methodused">puv:Method</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#sample-preparationmethod">puv:samplePreparation</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Property(S06)">
+        <h3>Property (S06) <sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#Property</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Controlled vocabulary defining the terms that may be used to specify the property element of a parameter (part of the 'what' theme) in the BODC parameter semantic model
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/sosa/ObservableProperty">sosa:ObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#property">puv:property</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="UnitofMeasurement(P06)">
+        <h3>Unit of Measurement (P06)<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#UnitOfMeasurement</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    Terms approved for use by BODC to describe the measurement units for data held in its repositories
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#unit-of-measurement">puv:uom</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#analyticalmethod">analytical method</a></li>
+        <li><a href="#biologicalobjectofinterest">biological object of interest</a></li>
+        <li><a href="#chemicalobjectofinterest">chemical object of interest</a></li>
+        <li><a href="#dataprocessingmethod">data processing method</a></li>
+        <li><a href="#iscomposedof">is composed of</a></li>
+        <li><a href="#matrix">matrix </a></li>
+        <li><a href="#measurement-matrixrelationship">measurement-matrix relationship</a></li>
+        <li><a href="#method">method</a></li>
+        <li><a href="#objectofinterest">object of interest </a></li>
+        <li><a href="#physicalobjectofinterest">physical object of interest</a></li>
+        <li><a href="#property">property</a></li>
+        <li><a href="#sample-preparationmethod">sample-preparation method</a></li>
+        <li><a href="#statistic">statistic </a></li>
+        <li><a href="#unit-of-measurement">unit-of-measurement </a></li>
+    </ul>
+    <div class="entity property" id="analyticalmethod">
+        <h3>analytical method<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#analyticalMethod</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#method">puv:method</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Analyticalmethod(S04)">puv:AnalyticalMethod</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="biologicalobjectofinterest">
+        <h3>biological object of interest<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#biologicalObject</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#objectofinterest">puv:objectOfInterest</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Biologicalentity(S25)">puv:BiologicalEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="chemicalobjectofinterest">
+        <h3>chemical object of interest<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#chemicalObject</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#objectofinterest">puv:objectOfInterest</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Chemicalsubstance(S27)">puv:ChemicalEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dataprocessingmethod">
+        <h3>data processing method<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#dataProcessing</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#method">puv:method</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Dataprocessingmethod(S05)">puv:DataProcessingMethod</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="iscomposedof">
+        <h3>is composed of<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#isComposedOf</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    link to component concepts
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="matrix">
+        <h3>matrix <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#matrix</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    environmental matrix that the measurement is in relation to 
+                </td>
+            </tr>
+            <tr>
+                <th>Usage Note</th>
+                <td>
+                    What is the environmental matrix?
+
+- Do I need one? You will for most environmental measurements.
+- Why? This is to remove any ambiguity about what the value reported relates to.
+- Take for example "Concentration of cadmium" - This is an ambiguous label if used to define a variable because it does not say concentration of cadmium in what? In the sediment? a water body? the atmosphere? a biological organism? If the former was it in the liquid phase or attached to particles? If the latter was it in the whole organism or one of its organs?
+- If the measurement relates to a water body or the atmosphere one needs to ask: Was the sample filtered? If it were, then the filter type or filter size is an important information to be stored close to the measurement value. In the P01 semantic model this is captured as part of the matrix definition.
+
+For example, when a dissolved quantity is measured in a water body, we apply the following rules
+
+- Use "water body [dissolved plus reactive particulate phase]" if the sample was not filtered
+- Use "water body [dissolved plus reactive particulate <GF/F phase]" if the sample was filtered through GF/F filter
+- Use "water body [dissolved plus reactive particulate <0.4/0.45um phase]" if the sample was filtered through a 0.4/0.45 um membrane
+- Use "water body [dissolved plus reactive particulate <unknown phase]" if the sample was filtered but the filter type is unknown.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Matrix(S26)">puv:Matrix</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="measurement-matrixrelationship">
+        <h3>measurement-matrix relationship<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#matrixRelationship</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Measurement-matrixrelationship(S02)">puv:MMRel</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="method">
+        <h3>method<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#method</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    method used to measure the value
+                </td>
+            </tr>
+            <tr>
+                <th>Usage Note</th>
+                <td>
+                    Do I need to specify the method?
+
+- This can be important for some measurements or if one wants to distinguish between quantities measured using different methods
+- The method is specified to avoid ambiguity and minimise the need to refer to free-text documentation
+- It can help with automated data compilation and aggregation and decrease the risk of data being misinterpreted
+
+Take for example, chlorophyll-a. The output from an in situ fluorometer is often labelled as "Concentration of chlorophyll-a". However the values cannot be guaranteed to be an accurate representation of the real amount of chlorophyll-a in a water body without access to textual information about the method and knowing whether the data have been validated against chlorophyll-a measured by filtration, extracted in a solvent and analysed using either HPLC, fluorometry or photometric methods. Most users would require that an automated search of chlorophyll-a data be able to distinguish between these different methods. The P01 semantic model is built so that this information can be captured in the parameter code.
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Methodused">puv:Method</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="objectofinterest">
+        <h3>object of interest <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#objectOfInterest</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    object of interest can be a chemical object, a biological object, a physical phenomenon, or a material object
+                </td>
+            </tr>
+            <tr>
+                <th>Usage Note</th>
+                <td>
+                    What are the objects of interest? Are they chemical substances? biological organisms? material objects? physical phenomena? none of these?
+
+Note that if the property is the property of the environment under study (e.g. "pH of the water body" or "Temperature of the atmosphere") then the object of interest is the environmental matrix and the field "object of interest" can be ignored.
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Entitythatbearstheparameter">puv:Entity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="physicalobjectofinterest">
+        <h3>physical object of interest<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#physicalObject</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#objectofinterest">puv:objectOfInterest</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Physicalentity(S29)">puv:PhysicalEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="property">
+        <h3>property<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#property</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    property or attribute that is being measured, which must be associated with either an object of interest or a matrix or both
+                </td>
+            </tr>
+            <tr>
+                <th>Usage Note</th>
+                <td>
+                    What are the properties measured or observed? What kind of properties are they? Concentrations? Abundances? Temperature? Uptake rates? pH?
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Property(S06)">puv:Property</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="sample-preparationmethod">
+        <h3>sample-preparation method<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#samplePreparation</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#method">puv:method</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Samplepreparationmethod(S03)">puv:PrepMethod</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="statistic">
+        <h3>statistic <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#statistic</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    statistical treatment
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Parameter(P01)">puv:Parameter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Parameterstatistic(S07)">puv:ParameterStatistic</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="unit-of-measurement">
+        <h3>unit-of-measurement <sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>IRI</th>
+                <td><code>https://w3id.org/env/puv#uom</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    scale or unit of measurement
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#UnitofMeasurement(P06)">puv:UnitOfMeasurement</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt><em>default (:)</em></dt>
+        <dd><code>https://w3id.org/env/puv#</code></dd>
+        <dt>dcterms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>puv</dt>
+        <dd><code>https://w3id.org/env/puv#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>schema</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>sdo</dt>
+        <dd><code>http://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>sosa</dt>
+        <dd><code>http://www.w3.org/ns/sosa/</code></dd>
+        <dt>time</dt>
+        <dd><code>http://www.w3.org/2006/time#</code></dd>
+        <dt>xml</dt>
+        <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+<section id="legend">
+    <h2>Legend</h2>
+    <table class="entity">
+        <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+        <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+        <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+        <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+        <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+        <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+        <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+    </table>
+</section>
+</body>
+</html>
