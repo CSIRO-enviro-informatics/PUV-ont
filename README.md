@@ -23,7 +23,7 @@ For example, the description of parameter [`R0186569`](http://vocab.nerc.ac.uk/c
         <http://vocab.nerc.ac.uk/collection/S02/current/S041/> .
 ```
 
-The OWL implementation defined in [PUV-ont](rdf/puv-ont.ttl) has explicit links to the dependency terms from different vocabularies.  
+The OWL implementation defined in [PUV-ont](rdf/puv.ttl) has explicit links to the dependency terms from different vocabularies.  
 
 ![PUV-ont](image/puv-Parameter.png)
 
