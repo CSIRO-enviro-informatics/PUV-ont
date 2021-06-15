@@ -23,10 +23,6 @@ For example, the description of parameter [`R0186569`](http://vocab.nerc.ac.uk/c
         <http://vocab.nerc.ac.uk/collection/S02/current/S041/> .
 ```
 
-The OWL implementation defined in [PUV-ont](rdf/puv.ttl) has explicit links to the dependency terms from different vocabularies.  
-
-![PUV-ont](image/puv-Parameter.png)
-
 Using PUV-ont the relationships in the same example are encoded as follows:
 
 ```turtle
@@ -43,6 +39,9 @@ Using PUV-ont the relationships in the same example are encoded as follows:
   puv:uom <http://vocab.nerc.ac.uk/collection/P06/current/UUKG/> ;
 .
 ```
+This follows an OWL implementation defined in [PUV-ont](rdf/puv.ttl) which specifies explicit links to the dependency terms from different vocabularies.  
+
+![PUV-ont](image/puv-Parameter.png)
 
 The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) developed by [Adam Leadbetter](https://github.com/adamml) also addressed this issue. 
 See our [comparison of PUV-ont with CPM ontology](puv-vs-cpm.md)
