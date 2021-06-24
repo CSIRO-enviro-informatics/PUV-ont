@@ -35,15 +35,6 @@
   schema:identifier "https://orcid.org/0000-0001-8042-6391"^^xsd:anyURI ;
   schema:name "Alexandra Kokkinaki"@en ;
 .
-<mailto:rkl@bodc.ac.uk>
-  a owl:NamedIndividual ;
-  a schema:Person ;
-  schema:affiliation [
-      schema:name "BODC" ;
-    ] ;
-  schema:email <mailto:rkl@bodc.ac.uk> ;
-  schema:name "Roy Lowry"@en ;
-.
 <https://orcid.org/0000-0002-2237-0091>
   a owl:NamedIndividual ;
   a schema:Person ;
@@ -350,44 +341,47 @@ puv:UnitOfMeasurement
   rdfs:seeAlso <https://vocab.nerc.ac.uk/collection/P06/> ;
   rdfs:subClassOf skos:Concept ;
 .
-puv:analyticalMethod
+puv:hasBiologicalObject
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "analytical method" ;
-  rdfs:range puv:AnalyticalMethod ;
-  rdfs:subPropertyOf puv:method ;
-.
-puv:biologicalObject
-  a owl:ObjectProperty ;
-  rdfs:domain puv:Parameter ;
-  rdfs:label "biological object of interest" ;
+  rdfs:label "involves biological object of interest" ;
   rdfs:range puv:BiologicalEntity ;
-  rdfs:subPropertyOf puv:objectOfInterest ;
+  rdfs:subPropertyOf puv:hasObjectOfInterest ;
 .
-puv:chemicalObject
+puv:hasChemicalObject
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "chemical object of interest" ;
+  rdfs:label "involves chemical object of interest" ;
   rdfs:range puv:ChemicalEntity ;
-  rdfs:subPropertyOf puv:objectOfInterest ;
+  rdfs:subPropertyOf puv:hasObjectOfInterest ;
 .
-puv:dataProcessing
+puv:hasMatrixRelationship
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "data processing method" ;
-  rdfs:range puv:DataProcessingMethod ;
-  rdfs:subPropertyOf puv:method ;
+  rdfs:label "has measurement-matrix relationship" ;
+  rdfs:range puv:MMRel ;
 .
-puv:isComposedOf
+puv:hasObjectOfInterest
   a owl:ObjectProperty ;
-  rdfs:comment "link to component concepts" ;
-  rdfs:label "is composed of" ;
+  rdfs:comment "object of interest can be a chemical object, a biological object, a physical phenomenon, or a material object" ;
+  rdfs:label "involves object of interest " ;
+  rdfs:range puv:Entity ;
+  skos:scopeNote """What are the objects of interest? Are they chemical substances? biological organisms? material objects? physical phenomena? none of these?
+
+Note that if the property is the property of the environment under study (e.g. \"pH of the water body\" or \"Temperature of the atmosphere\") then the object of interest is the environmental matrix and the field \"object of interest\" can be ignored.""" ;
 .
-puv:matrix
+puv:hasPhysicalObject
+  a owl:ObjectProperty ;
+  rdfs:domain puv:Parameter ;
+  rdfs:label "involves physical object of interest" ;
+  rdfs:range puv:PhysicalEntity ;
+  rdfs:subPropertyOf puv:hasObjectOfInterest ;
+.
+puv:inMatrix
   a owl:ObjectProperty ;
   rdfs:comment "environmental matrix that the measurement is in relation to " ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "matrix " ;
+  rdfs:label "in matrix " ;
   rdfs:range puv:Matrix ;
   skos:scopeNote """What is the environmental matrix?
 
@@ -403,16 +397,43 @@ For example, when a dissolved quantity is measured in a water body, we apply the
 - Use \"water body [dissolved plus reactive particulate <0.4/0.45um phase]\" if the sample was filtered through a 0.4/0.45 um membrane
 - Use \"water body [dissolved plus reactive particulate <unknown phase]\" if the sample was filtered but the filter type is unknown.""" ;
 .
-puv:matrixRelationship
+puv:isComposedOf
+  a owl:ObjectProperty ;
+  rdfs:comment "link to component concepts" ;
+  rdfs:label "is composed of" ;
+.
+puv:ofProperty
+  a owl:ObjectProperty ;
+  rdfs:comment "property or attribute that is being measured, which must be associated with either an object of interest or a matrix or both" ;
+  rdfs:domain puv:Parameter ;
+  rdfs:label "of property" ;
+  rdfs:range puv:Property ;
+  skos:scopeNote "What are the properties measured or observed? What kind of properties are they? Concentrations? Abundances? Temperature? Uptake rates? pH?" ;
+.
+puv:uom
+  a owl:ObjectProperty ;
+  rdfs:comment "scale or unit of measurement" ;
+  rdfs:label "unit-of-measurement " ;
+  rdfs:range puv:UnitOfMeasurement ;
+.
+puv:usesAnalyticalMethod
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "measurement-matrix relationship" ;
-  rdfs:range puv:MMRel ;
+  rdfs:label "uses analytical method" ;
+  rdfs:range puv:AnalyticalMethod ;
+  rdfs:subPropertyOf puv:usesMethod ;
 .
-puv:method
+puv:usesDataProcessing
+  a owl:ObjectProperty ;
+  rdfs:domain puv:Parameter ;
+  rdfs:label "uses data processing method" ;
+  rdfs:range puv:DataProcessingMethod ;
+  rdfs:subPropertyOf puv:usesMethod ;
+.
+puv:usesMethod
   a owl:ObjectProperty ;
   rdfs:comment "method used to measure the value" ;
-  rdfs:label "method" ;
+  rdfs:label "uses method" ;
   rdfs:range puv:Method ;
   skos:scopeNote """Do I need to specify the method?
 
@@ -422,47 +443,26 @@ puv:method
 
 Take for example, chlorophyll-a. The output from an in situ fluorometer is often labelled as \"Concentration of chlorophyll-a\". However the values cannot be guaranteed to be an accurate representation of the real amount of chlorophyll-a in a water body without access to textual information about the method and knowing whether the data have been validated against chlorophyll-a measured by filtration, extracted in a solvent and analysed using either HPLC, fluorometry or photometric methods. Most users would require that an automated search of chlorophyll-a data be able to distinguish between these different methods. The P01 semantic model is built so that this information can be captured in the parameter code.""" ;
 .
-puv:objectOfInterest
-  a owl:ObjectProperty ;
-  rdfs:comment "object of interest can be a chemical object, a biological object, a physical phenomenon, or a material object" ;
-  rdfs:label "object of interest " ;
-  rdfs:range puv:Entity ;
-  skos:scopeNote """What are the objects of interest? Are they chemical substances? biological organisms? material objects? physical phenomena? none of these?
-
-Note that if the property is the property of the environment under study (e.g. \"pH of the water body\" or \"Temperature of the atmosphere\") then the object of interest is the environmental matrix and the field \"object of interest\" can be ignored.""" ;
-.
-puv:physicalObject
+puv:usesSamplePreparation
   a owl:ObjectProperty ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "physical object of interest" ;
-  rdfs:range puv:PhysicalEntity ;
-  rdfs:subPropertyOf puv:objectOfInterest ;
-.
-puv:property
-  a owl:ObjectProperty ;
-  rdfs:comment "property or attribute that is being measured, which must be associated with either an object of interest or a matrix or both" ;
-  rdfs:domain puv:Parameter ;
-  rdfs:label "property" ;
-  rdfs:range puv:Property ;
-  skos:scopeNote "What are the properties measured or observed? What kind of properties are they? Concentrations? Abundances? Temperature? Uptake rates? pH?" ;
-.
-puv:samplePreparation
-  a owl:ObjectProperty ;
-  rdfs:domain puv:Parameter ;
-  rdfs:label "sample-preparation method" ;
+  rdfs:label "uses sample-preparation method" ;
   rdfs:range puv:PrepMethod ;
-  rdfs:subPropertyOf puv:method ;
+  rdfs:subPropertyOf puv:usesMethod ;
 .
-puv:statistic
+puv:usesStatistic
   a owl:ObjectProperty ;
   rdfs:comment "statistical treatment" ;
   rdfs:domain puv:Parameter ;
-  rdfs:label "statistic " ;
+  rdfs:label "uses statistic " ;
   rdfs:range puv:ParameterStatistic ;
 .
-puv:uom
-  a owl:ObjectProperty ;
-  rdfs:comment "scale or unit of measurement" ;
-  rdfs:label "unit-of-measurement " ;
-  rdfs:range puv:UnitOfMeasurement ;
+<mailto:rkl@bodc.ac.uk>
+  a owl:NamedIndividual ;
+  a schema:Person ;
+  schema:affiliation [
+      schema:name "BODC" ;
+    ] ;
+  schema:email <mailto:rkl@bodc.ac.uk> ;
+  schema:name "Roy Lowry"@en ;
 .

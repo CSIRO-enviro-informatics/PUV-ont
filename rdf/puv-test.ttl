@@ -22,11 +22,11 @@ puv-test:R0186569
   skos:broader <http://vocab.nerc.ac.uk/collection/P02/current/BCOC/> ;
   skos:definition "The amount (mass or number of moles) of the specified analyte per unit weight of the specified organism or part thereof after water has been removed."@en ;
   skos:prefLabel "Concentration of 1,2,3,7,8-pentachlorodibenzofuran {1,2,3,7,8-pentaCDF CAS 57117-41-6} per unit dry weight of biota {Mytilus galloprovincialis (ITIS: 79456: WoRMS 140481) [Subcomponent: flesh]}"@en ;
-  puv:biologicalObject <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/> ;
-  puv:chemicalObject <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
-  puv:matrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/> ;
-  puv:matrixRelationship <http://vocab.nerc.ac.uk/collection/S02/current/S041/> ;
-  puv:property <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/> ;
+  puv:hasBiologicalObject <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/> ;
+  puv:hasChemicalObject <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
+  puv:hasMatrixRelationship <http://vocab.nerc.ac.uk/collection/S02/current/S041/> ;
+  puv:inMatrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/> ;
+  puv:ofProperty <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/> ;
   puv:uom <http://vocab.nerc.ac.uk/collection/P06/current/UUKG/> ;
 .
 puv-test:UGMS
@@ -37,19 +37,19 @@ puv-test:UGMS
   skos:definition "Concentration of nitrogen biomass per m2 of macrolagae. Macroalgae (or seaweed) grows above all other benthic plants (corals, seagrasses, benthic microalgae). It is parameterised as a non-calcifying leafy algae, with a C:N:P ratio of 550:30:1, and a formulation for calculating the percentage of the bottom covered as 1-exp(-ΩMA MA). In the model, in the absence of both calcifying macroalgae (particularly Halimeda) and unicellular epiphytes, macroalgae represents the biomass of all seaweeds and epiphytes." ;
   skos:notation "MA" ;
   skos:prefLabel "Biomass as nitrogen of Macroalgae per unit area of the sea surface" ;
-  puv:biologicalObject [
+  puv:hasBiologicalObject [
       a puv:BiologicalEntity ;
       skos:prefLabel "macroalgae (S25)" ;
     ] ;
-  puv:matrix [
-      a puv:Matrix ;
-      skos:prefLabel "water body" ;
-    ] ;
-  puv:matrixRelationship [
+  puv:hasMatrixRelationship [
       a puv:MMRel ;
       skos:prefLabel "per unit area of the" ;
     ] ;
-  puv:property [
+  puv:inMatrix [
+      a puv:Matrix ;
+      skos:prefLabel "water body" ;
+    ] ;
+  puv:ofProperty [
       a puv:Property ;
       skos:prefLabel "Biomass as nitrogen" ;
     ] ;
@@ -62,23 +62,23 @@ puv-test:UGSS
   skos:definition "Concentration of nitrogen biomass per m2 of a seagrass form parameterised to be similar to Halophila deciphens. This form captures light after it has passed through the Zostera and Halophila ovalis seagrass form." ;
   skos:notation "SGD" ;
   skos:prefLabel "Biomass as nitrogen of Deep Seagrass per unit area of the sea surface" ;
-  puv:biologicalObject [
+  puv:hasBiologicalObject [
       a puv:BiologicalEntity ;
       skos:prefLabel "Halophila deciphens (S25)" ;
     ] ;
-  puv:matrix [
-      a puv:Matrix ;
-      skos:prefLabel "water body" ;
-    ] ;
-  puv:matrixRelationship [
+  puv:hasMatrixRelationship [
       a puv:MMRel ;
       skos:prefLabel "per unit area of the" ;
     ] ;
-  puv:property [
+  puv:inMatrix [
+      a puv:Matrix ;
+      skos:prefLabel "water body" ;
+    ] ;
+  puv:ofProperty [
       a puv:Property ;
       skos:prefLabel "Biomass as nitrogen" ;
     ] ;
 .
-puv:matrixRelationship
+puv:hasMatrixRelationship
   rdfs:domain puv:Parameter ;
 .
