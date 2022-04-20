@@ -31,11 +31,11 @@ Using PUV-ont the relationships in the same example are encoded as follows:
   skos:broader <http://vocab.nerc.ac.uk/collection/P02/current/BCOC/> ;
   skos:definition "The amount (mass or number of moles) of the specified analyte per unit weight of the specified organism or part thereof after water has been removed."@en ;
   skos:prefLabel "Concentration of 1,2,3,7,8-pentachlorodibenzofuran {1,2,3,7,8-pentaCDF CAS 57117-41-6} per unit dry weight of biota {Mytilus galloprovincialis (ITIS: 79456: WoRMS 140481) [Subcomponent: flesh]}"@en ;
-  puv:hasBiologicalObject <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/> ;
-  puv:hasChemicalObject <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
-  puv:hasMatrixRelationship <http://vocab.nerc.ac.uk/collection/S02/current/S041/> ;
-  puv:inMatrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/> ;
-  puv:ofProperty <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/> ;
+  puv:biologicalObject <http://vocab.nerc.ac.uk/collection/S25/current/BE006569/> ;
+  puv:chemicalObject <http://vocab.nerc.ac.uk/collection/S27/current/CS003687/> ;
+  puv:matrixRelationship <http://vocab.nerc.ac.uk/collection/S02/current/S041/> ;
+  puv:matrix <http://vocab.nerc.ac.uk/collection/S26/current/MAT01963/> ;
+  puv:property <http://vocab.nerc.ac.uk/collection/S06/current/S0600045/> ;
   puv:uom <http://vocab.nerc.ac.uk/collection/P06/current/UUKG/> ;
 .
 ```
