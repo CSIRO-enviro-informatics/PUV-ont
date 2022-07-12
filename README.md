@@ -1,5 +1,5 @@
 # Parameter Usage Vocabulary Ontology
-An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](https://vocab.nerc.ac.uk/collection/P01/current/). 
+An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](https://vocab.nerc.ac.uk/collection/P01/current/). PUV Ontology is formally documented at the **ontology namespace** https://w3id.org/env/puv 
 
 The 'semantic model' for parameters is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized in the following figure: 
 
