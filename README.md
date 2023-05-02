@@ -1,6 +1,7 @@
 # Parameter Usage Vocabulary Ontology
 An ontology for defining parameters (observable-properties) corresponding to the [NVS Parameter Usage Vocabulary (P01)](https://vocab.nerc.ac.uk/collection/P01/current/). PUV Ontology is formally documented at the **ontology namespace** https://w3id.org/env/puv 
 
+## P01 Semantic Model
 The 'semantic model' for parameters is described in the [P01 issue tracker](https://github.com/nvs-vocabs/P01/blob/master/README.md) and summarized in the following figure: 
 
 ![P01_wheel](image/P01_wheel.png)
@@ -23,6 +24,7 @@ For example, the description of parameter [`R0186569`](http://vocab.nerc.ac.uk/c
         <http://vocab.nerc.ac.uk/collection/S02/current/S041/> .
 ```
 
+## PUV Ontology
 Using PUV-ont the relationships in the same example are encoded as follows:
 
 ```turtle
@@ -43,5 +45,15 @@ This follows an OWL implementation defined in [PUV-ont](rdf/puv.ttl) which speci
 
 ![PUV-ont](image/puv-Parameter.png)
 
+## Other considerations
+### Units of measure
+Note that the Semantic Model does **not** include units-of-measure. 
+
+A parameter _could_ be linked to a unit-of-measure using [qudt:applicableUnit](http://qudt.org/schema/qudt/applicableUnit)
+
+### Parameter dimensionality
+A parameter may be linked to a dimension vector using [qudt:hasDimensionVector](http://qudt.org/schema/qudt/hasDimensionVector) 
+
+## Prior work
 The [Complex Property Model in OWL](https://github.com/adamml/opm-owl) developed by [Adam Leadbetter](https://github.com/adamml) also addressed this issue. 
 See our [comparison of PUV-ont with CPM ontology](puv-vs-cpm.md)
