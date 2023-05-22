@@ -166,6 +166,11 @@ puv:ChemicalEntity
   rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S27/> ;
   rdfs:subClassOf skos:Concept ;
   rdfs:subClassOf puv:Entity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom puv:ChemicalEntity ;
+      owl:onProperty puv:isComposedOf ;
+    ] ;
 .
 puv:DataProcessingMethod
   a owl:Class ;
@@ -284,7 +289,13 @@ puv:PhysicalEntity
   rdfs:subClassOf puv:Entity ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom puv:PhysicalEntityComponent ;
+      owl:allValuesFrom [
+          a owl:Class ;
+          owl:unionOf (
+              puv:PhysicalEntityComponent
+              puv:ChemicalEntity
+            ) ;
+        ] ;
       owl:onProperty puv:isComposedOf ;
     ] ;
 .
